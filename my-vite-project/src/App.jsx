@@ -9,7 +9,7 @@ import{Parallax, ParallaxLayer } from '@react-spring/parallax';
 function App() {
   return(
     <div>
-      <Parallax pages={5}>
+      <Parallax pages={4}>
         <ParallaxLayer 
           offset={0}
           speed={1}
@@ -24,22 +24,22 @@ function App() {
           <h2>Count</h2>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={2} speed={0.5} factor={1}>
+        <ParallaxLayer offset={1.4} speed={0.3} factor={1}>
           <h2>My</h2>
         </ParallaxLayer>
-        
-          <ParallaxLayer
-            offset={4}
-            speed={0.08}
-            factor={2}
+
+        <ParallaxLayer
+            offset={2}
+            speed={1}
+            factor={3.5}
             style={{
               backgroundImage: `url(${fbg})`,
-              backgroundSize: "cover"
+              backgroundSize: "cover",
+              backgroundPosition: "center"
 
             }}
-          />
-
-        <ParallaxLayer offset={4} speed={0.08}>
+        />
+        <ParallaxLayer offset={2.4} speed={0.05}>
           <h2>Coins</h2>
         </ParallaxLayer>
 
