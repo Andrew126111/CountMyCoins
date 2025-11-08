@@ -1,0 +1,11 @@
+#root {
+  max-width: auto;
+  margin: 0 auto;
+  padding:0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 200px;
+  text-align: center;
+}
