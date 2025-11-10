@@ -5,6 +5,8 @@ import bg from './assets/pexels-pixabay-47367.jpg';
 import fbg from './assets/land.png';
 import './App.css'
 import{Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { motion } from "motion/react";
+
 
 function App() {
   return(
@@ -41,6 +43,11 @@ function App() {
         />
         <ParallaxLayer offset={2.4} speed={0.05}>
           <h2>Coins</h2>
+        </ParallaxLayer>
+
+
+        <ParallaxLayer offset={3.5} speed={0.1}>
+          <motion.ul animate={{ rotate: 360 }} />
         </ParallaxLayer>
 
       </Parallax>
