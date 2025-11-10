@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import bg from './assets/pexels-pixabay-47367.jpg';
 import fbg from './assets/land.png';
+import coin from './assets/source.gif';
 import './App.css'
 import{Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { motion } from "motion/react";
@@ -26,7 +27,7 @@ function App() {
           <h2>Count</h2>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.4} speed={0.3} factor={1}>
+        <ParallaxLayer offset={1.4} speed={0.2} factor={1}>
           <h2>My</h2>
         </ParallaxLayer>
 
@@ -41,16 +42,30 @@ function App() {
 
             }}
         />
+
         <ParallaxLayer offset={2.4} speed={0.05}>
           <h2>Coins</h2>
         </ParallaxLayer>
 
-
-        <ParallaxLayer offset={3.5} speed={0.1}>
-          <motion.ul animate={{ rotate: 360 }} />
+        <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.05}>
+          <img class="coin" src={coin} height="95%" width="100%"></img>
         </ParallaxLayer>
 
+        <ParallaxLayer offset={3.5} speed={0.1}>
+            <importAnimate/>
+        </ParallaxLayer>
+
+        
+
       </Parallax>
+    </div>
+  )
+}
+
+function importAnimate(){
+  return(
+    <div class="coinContainer">
+
     </div>
   )
 }
