@@ -6,8 +6,10 @@ import fbg from './assets/land.png';
 import coin from './assets/source.gif';
 import './App.css'
 import{Parallax, ParallaxLayer } from '@react-spring/parallax';
-import { motion } from "motion/react";
+import { motion, spring } from "motion/react";
 import React, { useRef, useEffect } from 'react';
+
+
 
 //We always gotta create functions in react
 function App() {
@@ -28,7 +30,20 @@ function App() {
         </Parallax>
 
         <ParallaxLayer onClick={()=> ref.current.scrollTo(1.4)} offset={0} speed={0.05} >
-          <h2 class="unselectable">Count</h2>
+          <motion.div className="unselectable"
+            initial={{
+              y: -1000,
+            }}
+            transition={{
+              duration: 1,
+              type: 'spring',
+            }}
+            animate={{
+              y: 0,
+            }}
+          >
+            <BubbleText text="Count" />
+          </motion.div>
         </ParallaxLayer>
 
         <ParallaxLayer offset={1.4} speed={0.2} factor={1}>
@@ -48,11 +63,11 @@ function App() {
         />
 
         <ParallaxLayer onClick={()=> ref.current.scrollTo(3.5)} offset={2.4} speed={0.05}>
-          <h2 class="unselectable">Coins</h2>
+          <h2 className="unselectable"><BubbleText text="Coins"/></h2>
         </ParallaxLayer>
 
         <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.05} onClick={()=> ref.current.scrollTo(2.4)}>
-          <img class="coin" src={coin} height="95%" width="100%"></img>
+          <img className="coin" src={coin} height="95%" width="100%"></img>
         </ParallaxLayer>
 
         <ParallaxLayer offset={3.5} speed={0.1}>
@@ -66,27 +81,48 @@ function App() {
 
 function ImportAnimate(){
   return(
-    <div class="Container">
+    <div className="Container">
       <motion.div 
-        class="coinContainer"
+        className="coinContainer"
         style={{
           height:150,
           width:150,
         }}
-        intial={{
+        initial={{
           rotate: '0deg',
         }}
         animate={{
           rotate: '180deg'
         }}
         transition={{
-
+          duration: 2,
+          ease:'easeIn'
         }}
-    >
+      >
       </motion.div>
     </div>
   )
 }
+
+const Example = () => {
+  return (
+    <div className="grid h-screen place-content-center bg-black">
+      <BubbleText />
+    </div>
+  );
+};
+
+const BubbleText = ({ text }) => {
+  return (
+    <h2 className="text-center text-5xl font-thin text-indigo-300">
+      {text.split("").map((char, idx) => (
+        <span className="hoverText" key={idx}>
+          {char}
+        </span>
+      ))}
+    </h2>
+  );
+};
 
 
 export default App
