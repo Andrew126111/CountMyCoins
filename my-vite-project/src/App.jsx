@@ -1,3 +1,6 @@
+//These are all the imports we need in our program, they will include photos, libraries etc that we can use  by refering to
+//the name of the import
+
 import bg from './assets/pexels-pixabay-47367.jpg';
 import fbg from './assets/land.png';
 import coin from './assets/source.gif';
@@ -6,24 +9,12 @@ import{Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { motion } from "motion/react";
 import React, { useRef, useEffect } from 'react';
 
-
+//We always gotta create functions in react
 function App() {
-  const countPage = useRef(null);
-  const myPage = useRef(null);
-  const coinsPage = useRef(null);
-  
-  const scrollToSection = () => {
-    if (targetSectionRef.current){
-      targetSectionRef.current.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
-    }
-  }
-
+  const ref = useRef();
   return(
     <div>
-      <Parallax pages={4}>
+      <Parallax pages={4} ref={ref}>
         <ParallaxLayer
           offset={0}
           speed={1}
@@ -33,14 +24,15 @@ function App() {
             backgroundSize: 'cover',
           }}
          />
+        <Parallax>
+        </Parallax>
 
-        <ParallaxLayer onScroll={scrollToSection} offset={0} speed={0.05} ref={countPage} >
+        <ParallaxLayer onClick={()=> ref.current.scrollTo(1.4)} offset={0} speed={0.05} >
           <h2 class="unselectable">Count</h2>
         </ParallaxLayer>
 
-        <ParallaxLayer onScroll={scrollToSection} offset={1.4} speed={0.2} factor={1} ref={myPage}>
+        <ParallaxLayer offset={1.4} speed={0.2} factor={1}>
           <h2 class="unselectable">My</h2>
-          
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -48,7 +40,6 @@ function App() {
             speed={1}
             factor={3.5}
             style={{
-              
               backgroundImage: `url(${fbg})`,
               backgroundSize: "cover",
               backgroundPosition: "center"
@@ -56,11 +47,11 @@ function App() {
             }}
         />
 
-        <ParallaxLayer onScroll={scrollToSection} offset={2.4} speed={0.05} ref={coinsPage}>
+        <ParallaxLayer onClick={()=> ref.current.scrollTo(3.5)} offset={2.4} speed={0.05}>
           <h2 class="unselectable">Coins</h2>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.05}>
+        <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.05} onClick={()=> ref.current.scrollTo(2.4)}>
           <img class="coin" src={coin} height="95%" width="100%"></img>
         </ParallaxLayer>
 
@@ -75,8 +66,24 @@ function App() {
 
 function ImportAnimate(){
   return(
-    <div class="coinContainer">
+    <div class="Container">
+      <motion.div 
+        class="coinContainer"
+        style={{
+          height:150,
+          width:150,
+        }}
+        intial={{
+          rotate: '0deg',
+        }}
+        animate={{
+          rotate: '180deg'
+        }}
+        transition={{
 
+        }}
+    >
+      </motion.div>
     </div>
   )
 }

@@ -1,3 +1,5 @@
+
+
 #root {
   max-width: auto;
   margin: 0 auto;
@@ -10,7 +12,18 @@ h2 {
   text-align: center;
 }
 .coinContainer{
-  border: 2px ;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  
+}
+.Container{
+  display: flex;
+  justify-content: center;
+  height: 100%; /* full layer height */
+  width: 100%;
+  position: relative;
+  bottom: 11%;
 }
 .unselectable {
   -webkit-touch-callout: none;
