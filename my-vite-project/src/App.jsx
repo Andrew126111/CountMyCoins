@@ -66,7 +66,7 @@ function App() {
           <h2 className="unselectable"><BubbleText text="Coins"/></h2>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.05} onClick={()=> ref.current.scrollTo(2.4)}>
+        <ParallaxLayer sticky={{start:1, end:1.4}} speed={0.005} onClick={()=> ref.current.scrollTo(2.4)}>
           <img className="coin" src={coin} height="95%" width="100%"></img>
         </ParallaxLayer>
 
@@ -85,20 +85,17 @@ function ImportAnimate(){
       <motion.div 
         className="coinContainer"
         style={{
-          height:150,
-          width:150,
-        }}
-        initial={{
-          rotate: '0deg',
-        }}
-        animate={{
-          rotate: '180deg'
-        }}
-        transition={{
-          duration: 2,
-          ease:'easeIn'
+          height:300,
+          width:800,
         }}
       >
+        <h1 id="coinTitle">Drop your treasure here, let’s count it! 🪙✨</h1>
+        <motion.button id="importBtn"
+           initial={{ y: 10 }}
+           animate={{ y: 0 }}
+           whileHover={{ scale: 1.1 }}
+           whileTap={{ scale: 0.9 }}
+        >Import</motion.button>
       </motion.div>
     </div>
   )
