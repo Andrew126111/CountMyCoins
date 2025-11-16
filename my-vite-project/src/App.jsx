@@ -115,7 +115,7 @@ const Example = () => {
     </div>
   );
 };
-
+//old way of usin functions
 const BubbleText = ({ text }) => {
   return (
     <h2 className="text-center text-5xl font-thin text-indigo-300">
