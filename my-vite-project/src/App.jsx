@@ -89,12 +89,19 @@ function ImportAnimate(){
           width:800,
         }}
       >
-        <h1 id="coinTitle">Drop your treasure here, let’s count it! 🪙✨</h1>
-        <motion.button id="importBtn"
+        <h1 className="unselectable" id="coinTitle">Drop your treasure here, let’s count it! 🪙✨</h1>
+        <motion.button className="button-53"
            initial={{ y: 10 }}
            animate={{ y: 0 }}
            whileHover={{ scale: 1.1 }}
            whileTap={{ scale: 0.9 }}
+           drag whileDrag={{ scale: 1.2}}
+           dragConstraints={{
+            top: -40,
+            left: -90,
+            right: 70,
+            bottom: 80,
+          }}
         >Import</motion.button>
       </motion.div>
     </div>
