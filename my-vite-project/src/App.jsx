@@ -9,11 +9,10 @@ import{Parallax, ParallaxLayer } from '@react-spring/parallax';
 import { motion, spring } from "motion/react";
 import React, { useRef, useEffect } from 'react';
 
-
-
 //We always gotta create functions in react
 function App() {
   const ref = useRef();
+  
   return(
     <div>
       <Parallax pages={4} ref={ref}>
@@ -47,13 +46,14 @@ function App() {
         </ParallaxLayer>
 
         <ParallaxLayer offset={1.4} speed={0.2} factor={1}>
-          <h2 class="unselectable">My</h2>
+          <h2 className="unselectable">My</h2>
         </ParallaxLayer>
 
         <ParallaxLayer
             offset={2}
             speed={1}
             factor={3.5}
+            className='unselectable'
             style={{
               backgroundImage: `url(${fbg})`,
               backgroundSize: "cover",
@@ -75,12 +75,25 @@ function App() {
         </ParallaxLayer>
         
       </Parallax>
+      
     </div>
   )
 }
 
 function ImportAnimate(){
+  const fileInputRef = useRef(null);
+
+  const handleClick = () => {
+    fileInputRef.current.click(); // open file picker
+  };
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    console.log("User selected:", file);
+  };
+
   return(
+    
     <div className="Container">
       <motion.div 
         className="coinContainer"
@@ -90,7 +103,7 @@ function ImportAnimate(){
         }}
       >
         <h1 className="unselectable" id="coinTitle">Drop your treasure here, let’s count it! 🪙✨</h1>
-        <motion.button className="button-53"
+        <motion.button onClick={handleClick} className="button-53"
            initial={{ y: 10 }}
            animate={{ y: 0 }}
            whileHover={{ scale: 1.1 }}
@@ -102,7 +115,14 @@ function ImportAnimate(){
             right: 70,
             bottom: 80,
           }}
+          
         >Import</motion.button>
+        <input
+          type="file"
+          ref={fileInputRef}
+          onChange={handleFileChange}
+          style={{ display: "none" }}
+        />
       </motion.div>
     </div>
   )
@@ -127,6 +147,7 @@ const BubbleText = ({ text }) => {
     </h2>
   );
 };
+
 
 
 export default App
