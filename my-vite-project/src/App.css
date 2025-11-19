@@ -16,6 +16,7 @@ h2 {
   display: block;
   align-items: center;
   justify-content: center;
+  opacity: 0.85;
 
 }
 .Container{
@@ -25,6 +26,7 @@ h2 {
   width: 100%;
   position: relative;
   bottom: 16%;
+  
 }
 .unselectable {
   -webkit-touch-callout: none;
@@ -74,10 +76,6 @@ h2 {
   color:black;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-#coinTitle2{
-  font-size: 16px;
-}
-
 
 .button-53 {
   background-color: rgb(253, 220, 92);
