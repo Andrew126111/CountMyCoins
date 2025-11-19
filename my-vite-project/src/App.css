@@ -130,3 +130,17 @@ h2 {
     font-size: 1.25rem;
   }
 }
+
+.results-box {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 12px;
+    max-width: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    font-size: 14px;
+  }
