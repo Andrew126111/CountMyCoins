@@ -152,6 +152,20 @@ function ImportAnimate(){
         <h1 className="unselectable" id="coinTitle">
           Drop your treasure here, let’s count it! 🪙✨
         </h1>
+        {results &&(
+          <div className="resultsBox" >
+            <h2 id="heading-2">Detected Coins: </h2>
+            <div id="heading-2">
+              {Object.entries(results.counts).map(([coin, count]) => (
+            <div key={coin}>
+              {coin}: {count}
+            </div>
+            ))}
+          </div>
+
+              <h3 id="heading-2">Total Value: ${results.total}</h3>
+          </div>
+        )}
 
         <motion.button
           onClick={handleClick}
@@ -172,21 +186,6 @@ function ImportAnimate(){
           Import
         </motion.button>
         
-        {results && (
-          <div className="resultsBox">
-            <h2>Detected Coins:</h2>
-
-            <ul>
-              {Object.entries(results.counts).map(([coin, count]) => (
-                <li key={coin}>
-                  {coin}: {count}
-                </li>
-              ))}
-            </ul>
-
-            <h3>Total Value: ${results.total}</h3>
-          </div>
-        )}
 
         <input
           type="file"
