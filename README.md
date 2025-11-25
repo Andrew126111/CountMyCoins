@@ -4,3 +4,4 @@ to teach an ai to learn something. Since it was my first time using roboflow I d
 fix. Ill probably get this done decemeber 2025!!
 
 Overall very fun to build!
+8/10
